@@ -6,7 +6,9 @@ const addReview = ({
   q1 = '',
   q2 = '',
   q3 = '',
-  q4 = ''
+  q4 = '',
+  q5 = '',
+  shortNote = ''
 } = {}
 ) => ({
   type: "ADD_REVIEW",
@@ -16,10 +18,12 @@ const addReview = ({
     q2,
     q3,
     q4,
+    q5,
+    shortNote
     date: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`
   }
 });
-console.log(`${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}` );
+
 // Action Generator - remove existed company review by clicking a button
 const removeReview = ({companyName} = {}) => ({
   type: 'REMOVE_EXPENSE',

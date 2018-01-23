@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Link, Switch,  } from 'react-router-dom';
-import CreateReviewPage from '.././components/CreateReviewPage';
+import CreateReviewPage from '.././components/create-page/CreateReviewPage';
 import Header from '.././components/Header';
 import LoginPage from '.././components/LoginPage';
 import MainPage from '.././components/MainPage';
