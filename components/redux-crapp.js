@@ -30,6 +30,8 @@ const removeReview = ({companyName} = {}) => ({
   companyName
 });
 
+const editReview = ({})
+
 // Deafult state for reviewReducer function
 const reviewReducerDefaultState = [];
 // Make a right choice by providing a user data, state = object/data
