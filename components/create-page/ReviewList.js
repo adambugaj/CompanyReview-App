@@ -1,11 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const ReviewList = ({companyName, q1}) => {
-  console.log(q1);
+const ReviewList = ({q1}) => {
   return (
     <div>
-      <h2>{companyName}</h2>
-      <p>{q1}</p>
+      <h2>{q1}</h2>
+
     </div>
   )
 }

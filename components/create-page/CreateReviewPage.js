@@ -12,7 +12,7 @@ const CreateReviewPage = (props) => {
           console.log(review);
           props.dispatch(addReview({review}))
           props.history.push('/');
-          console.log(props.expense);
+          console.log(review);
         }}
 
       />

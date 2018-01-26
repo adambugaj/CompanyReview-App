@@ -5,21 +5,26 @@ import ReviewList from './create-page/ReviewList'
 
 // Component for main site
 const MainPage = (props) => {
-  console.log(props.review);
+            console.log(props.review);
     return (
       <div>
         <button><Link to="/login">Log In</Link></button>
         <button><Link to="/create-company-review">Create</Link></button>
+        { props.review.map((rev) => {
+          return <ReviewList key={rev.q1 + Math.random()}{...rev} />
+        })}
         <ReviewList/>
       </div>
     )
-  } //Check why it does not show up on main page when we save questions!
+  }
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    review: state.reviewReducer
-  };
-}
+  const mapStateToProps = (state) => {
+    return {
+      name: 'Adam',
+      status: 'Win!',
+      review: state.review
+    };
+  }
+
 
 export default connect(mapStateToProps)(MainPage);
