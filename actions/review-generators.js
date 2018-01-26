@@ -17,8 +17,8 @@ const addReview = ({
     q3,
     q4,
     q5,
-    shortNote
-    date: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`
+    shortNote,
+    date: `${new Date().toLocaleDateString()}}`
   }
 });
 
@@ -29,10 +29,10 @@ const removeReview = ({companyName} = {}) => ({
 });
 
 // Action Generator - edit what is needed in a review
-const editReview = ({companyName, updates} = {} => ({
+const editReview = ({companyName, updates} = {}) => ({
   type: 'EDIT_REVIEW',
   companyName,
   updates
-}));
+});
 
 export { addReview, removeReview, editReview };

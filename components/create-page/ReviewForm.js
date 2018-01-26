@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 
 // Component for creating new company review
 class ReviewForm extends React.Component {
+  constructor(props) {
+    super(props);
   // Object for storing answers
-  state = {
-    q1: '',
-    q2: '',
-    q3: '',
-    q4: '',
-    q5: '',
-    shortNote: ''
+    this.state = {
+      q1: props.review ? props.review.q1 : '243',
+      q2: props.review ? props.review.q2 : '',
+      q3: '',
+      q4: '',
+      q5: '',
+      shortNote: ''
+    };
   };
 
   // Functions to handle every question in a review form
@@ -43,11 +46,24 @@ class ReviewForm extends React.Component {
     const getNote = e.target.value;
     this.setState(() => ({ shortNote: getNote }));
   };
+  // From create review page
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSubmit({
+      q1:this.state.q1,
+      q2:this.state.q2,
+      q3:this.state.q3,
+      q4:this.state.q4,
+      q5:this.state.q5,
+      shortNote: this.state.shortNote
+
+    });
+  };
 
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <p>Number of home-office days</p>
           <input
             type="text"
@@ -63,20 +79,6 @@ class ReviewForm extends React.Component {
             value={this.state.q2}
             onChange={this.onChangeQ2}
           />
-          <p>English required</p>
-          <input
-            type="text"
-            placeholder="Question"
-            value={this.state.q3}
-            onChange={this.onChangeQ3}
-          />
-          <p>German required</p>
-          <input
-            type="text"
-            placeholder="Question"
-            value={this.state.q4}
-            onChange={this.onChangeQ4}
-          />
           <p>Wage amount</p>
           <input
             type="number"
@@ -84,6 +86,7 @@ class ReviewForm extends React.Component {
             value={this.state.q5}
             onChange={this.onChangeQ5}
           />
+          <p>Brief note</p>
           <textarea
             placeholder="Type down what you think"
             value={this.state.note}
@@ -91,7 +94,7 @@ class ReviewForm extends React.Component {
           >
           </textarea>
           <p>Review Score: {this.state.shortNote}</p>
-          <button><Link to="/">Save and go back</Link></button>
+          <button>Save and go back</button>
         </form>
       </div>
     );
