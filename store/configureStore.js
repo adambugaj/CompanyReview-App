@@ -6,7 +6,7 @@ import reviewReducer from '../reducers/reviewReducer';
 export default () => {
   const store = createStore(
     combineReducers({
-      review: reviewReducer
+      reviewReducer: reviewReducer
     })
   );
   return store;

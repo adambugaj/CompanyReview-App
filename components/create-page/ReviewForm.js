@@ -7,7 +7,8 @@ class ReviewForm extends React.Component {
     super(props);
   // Object for storing answers
     this.state = {
-      q1: props.review ? props.review.q1 : '243',
+      companyName: props.review ? props.review.companyName : '',
+      q1: props.review ? props.review.q1 : '',
       q2: props.review ? props.review.q2 : '',
       q3: '',
       q4: '',
@@ -48,8 +49,10 @@ class ReviewForm extends React.Component {
   };
   // From create review page
   onSubmit = (e) => {
+    console.log(this.state.q1);
     e.preventDefault();
     this.props.onSubmit({
+      companyName: this.state.companyName,
       q1:this.state.q1,
       q2:this.state.q2,
       q3:this.state.q3,
@@ -100,4 +103,5 @@ class ReviewForm extends React.Component {
     );
   }
 };
+
 export default ReviewForm;

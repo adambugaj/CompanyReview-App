@@ -6,6 +6,7 @@ import LoginPage from '.././components/LoginPage';
 import MainPage from '.././components/MainPage';
 import PageNotExisted from '.././components/PageNotExisted';
 import ReviewList from '.././components/create-page/ReviewList';
+import UserDashboard from '.././components/dashboard/UserDashboard';
 
 class CRAppRouter extends React.Component {
   render() {
@@ -14,10 +15,11 @@ class CRAppRouter extends React.Component {
         <div>
           <Header />
           <Switch>
-            <Route path="/" component={MainPage} exact={true} />
-            <Route path="/login" component={LoginPage} />
-            <Route path="/create-company-review" component={CreateReviewPage} />
-            <Route component={ReviewList} />
+            <Route path="/" component={MainPage} exact={true}/>
+            <Route path="/dashboard/:username" component={UserDashboard}/>
+            <Route path="/login" component={LoginPage}/>
+            <Route path="/create-company-review" component={CreateReviewPage}/>
+            <Route component={ReviewList}/>
           </Switch>
         </div>
       </BrowserRouter>

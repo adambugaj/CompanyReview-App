@@ -10,11 +10,10 @@ const CreateReviewPage = (props) => {
       <ReviewForm
         onSubmit={(review) => {
           console.log(review);
-          props.dispatch(addReview({review}))
+          props.dispatch(addReview(review))
           props.history.push('/');
-          console.log(review);
+          console.log(props.review);
         }}
-
       />
     </div>
   );

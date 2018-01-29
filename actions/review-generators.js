@@ -1,7 +1,7 @@
 // Setting up an object and constructor - create new review by filling the question and saving it by clicking a save button
 const addReview = ({
-  companyName = '',
-  q1 = '23123',
+  companyName = 'Capgemini',
+  q1 = '',
   q2 = '',
   q3 = '',
   q4 = '',
@@ -17,8 +17,7 @@ const addReview = ({
     q3,
     q4,
     q5,
-    shortNote,
-    date: `${new Date().toLocaleDateString()}}`
+    shortNote
   }
 });
 

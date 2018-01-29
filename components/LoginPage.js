@@ -6,11 +6,15 @@ import { Link, NavLink } from 'react-router-dom';
 class LoginPage extends React.Component {
 constructor(props) {
   super(props);
-
+  //this object will help us to set up a sign in component
+  this.usernameTest = {
+    username: 'user',
+    password: 'test'
+  }
   // Object for test username and password
   this.state = {
-      username: 'user',
-      password: 'test',
+      username: this.usernameTest.username,
+      password: this.usernameTest.password,
       checkUsername: '',
       checkPassword: '',
       registerInfo: ''
@@ -29,6 +33,7 @@ constructor(props) {
   };
 
   onSubmit = (e) => {
+    console.log(this.state.username);
     e.preventDefault();
     console.log(!this.state.checkPassword);
     // Check if empty and show message
@@ -38,8 +43,8 @@ constructor(props) {
    else if (this.state.checkUsername === this.state.username && this.state.checkPassword === this.state.password) {
     this.setState(() => ({registerInfo: 'Login Succeesful'}));
     setTimeout(() => {
-    this.props.history.push('/');
-  }, 1000)
+    this.props.history.push(`/dashboard/${this.state.username}`);
+  }, 800)
   } // Check if wrong and show message
   else {
     this.setState(() => ({registerInfo: 'Wrong username or password'}));
