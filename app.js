@@ -7,8 +7,7 @@ import configureStore from './store/configureStore';
 
 const store = configureStore();
 
-store.dispatch(addReview({ companyName: 'great', q1: 'nice', q2: 'super'}));
-store.dispatch(addReview({ companyName: '1', q1: '2', q2: '3'}));
+store.dispatch(addReview({ companyName: 'Symphony Solution', q1: 'nice', q2: 'super'}));
 const state = store.getState();
 console.log(state);
 

@@ -1,6 +1,6 @@
 // Setting up an object and constructor - create new review by filling the question and saving it by clicking a save button
 const addReview = ({
-  companyName = 'Capgemini',
+  companyName = '',
   q1 = '',
   q2 = '',
   q3 = '',

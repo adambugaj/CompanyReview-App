@@ -7,7 +7,7 @@ class ReviewForm extends React.Component {
     super(props);
   // Object for storing answers
     this.state = {
-      companyName: props.review ? props.review.companyName : '',
+      companyName: props.review ? props.review.companyName : 'Capgemini',
       q1: props.review ? props.review.q1 : '',
       q2: props.review ? props.review.q2 : '',
       q3: '',

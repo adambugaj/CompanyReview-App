@@ -24,7 +24,6 @@ const MainPage = (props) => {
   const mapStateToProps = (state) => {
     console.log(state);
     return {
-      name: 'Adam',
       review: state.reviewReducer
     };
   }
