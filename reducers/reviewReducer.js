@@ -5,15 +5,17 @@ const reviewReducer = (state = reviewReducerDefaultState, action) => {
   console.log(action.review);
   switch(action.type) {
     case 'ADD_REVIEW':
-      console.log(action.review);
+      console.log(state);
       return [
         ...state,
         action.review
       ];
-    case 'REMOVE_EXPENSE':
-      return state.filter((review) => {
-        console.log(review.companyName);
-        return review.companyName !== action.companyName;
+    case 'REMOVE_REVIEW':
+    // remember about return in every method you use!!
+    // you can do it with filter((review.companyName) => {}) - without destructuring, there is two options, just to know it :)
+      return state.filter(({companyName}) => {
+        console.log(companyName, action.companyName);
+        return companyName !== action.companyName;
       });
     default:
       return state;

@@ -18,6 +18,11 @@ class ReviewForm extends React.Component {
   };
 
   // Functions to handle every question in a review form
+  onCompanyName = (e) => {
+    const getCompanyName = e.target.value;
+    this.setState(() => ({companyName: getCompanyName}));
+  }
+
   onChangeQ1 = (e) => {
     const getQ1 = e.target.value;
     this.setState(() => ({ q1: getQ1 }));
@@ -67,15 +72,22 @@ class ReviewForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <p>Number of home-office days</p>
+          <p>Company Name</p>
           <input
             type="text"
             placeholder="Question"
             autoFocus
+            value={this.state.companyName}
+            onChange={this.onCompanyName}
+          />
+          <p>Number of home-office days</p>
+          <input
+            type="text"
+            placeholder="Question"
             value={this.state.q1}
             onChange={this.onChangeQ1}
           />
-          <p>Number of days for learning</p>
+          <p>Days for learning</p>
           <input
             type="text"
             placeholder="Question"

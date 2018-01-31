@@ -23,7 +23,7 @@ const addReview = ({
 
 // Action Generator - remove existed company review by clicking a button
 const removeReview = ({companyName} = {}) => ({
-  type: 'REMOVE_EXPENSE',
+  type: 'REMOVE_REVIEW',
   companyName
 });
 
