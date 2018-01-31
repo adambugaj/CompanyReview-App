@@ -5,17 +5,16 @@ import ReviewForm from './ReviewForm';
 
 
 const RemoveReview = (props) => {
-  // onRemoveReview = (e) => {
-  //   props.dispatch(removeReview({companyName: 'Capgemini'}));
-  // }
   return (
     <div>
-      <button onClick={this.onRemoveReview}>Remove
+      <button onClick={ () => {
+        const getCompanyName = prompt('Type the company name you want to remove');
+        props.dispatch(removeReview({companyName: getCompanyName}));
+      }}>Remove
       </button>
     </div>
   )
 }
-
 
 
 export default connect()(RemoveReview);

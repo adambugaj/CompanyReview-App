@@ -7,7 +7,11 @@ class ReviewForm extends React.Component {
     super(props);
   // Object for storing answers
     this.state = {
-      companyName: props.review ? props.review.companyName : 'Capgemini',
+      companyName: props.review ? props.review.companyName : 'Capgemini' ||
+      // it doesn't run, check how to make condition to not add the same company name, the actual idea - make a good validation
+       state.review.map((companyName) => {
+        return companyName === this.state.companyName ? 'TRUE' : 'FALSE';
+      }),
       q1: props.review ? props.review.q1 : '',
       q2: props.review ? props.review.q2 : '',
       q3: '',
@@ -20,6 +24,7 @@ class ReviewForm extends React.Component {
   // Functions to handle every question in a review form
   onCompanyName = (e) => {
     const getCompanyName = e.target.value;
+
     this.setState(() => ({companyName: getCompanyName}));
   }
 
@@ -54,7 +59,7 @@ class ReviewForm extends React.Component {
   };
   // From create review page
   onSubmit = (e) => {
-    console.log(this.state.q1);
+    console.log(this.state.companyName);
     e.preventDefault();
     this.props.onSubmit({
       companyName: this.state.companyName,
